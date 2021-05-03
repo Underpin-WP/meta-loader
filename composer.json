@@ -1,6 +1,6 @@
 {
-  "name": "underpin/meta-record-type-loader",
-  "description": "Meta Record Type loader for Underpin",
+  "name": "underpin/meta-loader",
+  "description": "Meta loader for Underpin",
   "type": "library",
   "license": "GPL 2.0",
   "authors": [
@@ -11,7 +11,7 @@
   ],
   "autoload": {
     "files": [
-      "meta-record-types.php"
+      "meta.php"
     ]
   }
 }
