@@ -11,6 +11,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 
 class Meta_Record_Type_Instance extends Meta_Record_Type {
+
 	use Instance_Setter;
 
 	protected $sanitize_callback;
@@ -21,11 +22,12 @@ class Meta_Record_Type_Instance extends Meta_Record_Type {
 		$this->set_values( $args );
 	}
 
-	public function sanitize( $key, $value ) {
-		return $this->set_callable( $this->sanitize_callback );
+	public function sanitize( $meta_value, $meta_key, $object_type ) {
+		return $this->set_callable( $this->sanitize_callback, $meta_value, $meta_key, $object_type );
 	}
 
 	public function has_permission() {
 		return $this->set_callable( $this->has_permission_callback );
 	}
+
 }
