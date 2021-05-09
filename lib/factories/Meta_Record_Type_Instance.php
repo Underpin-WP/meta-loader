@@ -23,7 +23,11 @@ class Meta_Record_Type_Instance extends Meta_Record_Type {
 	}
 
 	public function sanitize( $meta_value, $meta_key, $object_type ) {
-		return $this->set_callable( $this->sanitize_callback, $meta_value, $meta_key, $object_type );
+		if ( is_callable( $this->sanitize_callback ) ) {
+			return $this->set_callable( $this->sanitize_callback, $meta_value, $meta_key, $object_type );
+		}
+
+		return parent::sanitize( $meta_value, $meta_key, $object_type );
 	}
 
 	public function has_permission() {

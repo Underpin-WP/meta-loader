@@ -31,7 +31,9 @@ abstract class Meta_Record_Type {
 	 *
 	 * @since 1.0.0
 	 */
-	abstract public function sanitize( $meta_value, $meta_key, $object_type );
+	public function sanitize( $meta_value, $meta_key, $object_type ){
+		return $meta_value;
+	}
 
 	/**
 	 * Callback that determines if this meta can be saved, or not.
