@@ -2,17 +2,43 @@
 
 namespace Underpin_Meta\Abstracts;
 
+use Underpin\Traits\Feature_Extension;
+
 if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
 abstract class Meta_Record_Type {
 
+	use Feature_Extension;
+
 	protected $key = '';
+
+	protected $field_type = '';
 
 	protected $default_value = '';
 
 	protected $type = '';
+
+	protected $show_in_rest = false;
+
+	protected $single = true;
+
+	/**
+	 * Sanitize meta key data before saving.
+	 *
+	 * @since 1.0.0
+	 */
+	abstract public function sanitize();
+
+	/**
+	 * Callback that determines if this meta can be saved, or not.
+	 *
+	 * @since 1.0.0
+	 *
+	 * @return mixed
+	 */
+	abstract public function has_permission();
 
 	/**
 	 * Adds the metadata.
@@ -87,6 +113,31 @@ abstract class Meta_Record_Type {
 	 */
 	public function reset( $object_id ) {
 		return $this->update( $object_id, $this->default_value );
+	}
+
+	/**
+	 * @inheritDoc
+	 */
+	public function do_actions() {
+		add_action( 'init', [ $this, 'register_meta' ] );
+	}
+
+	/**
+	 * Registers the post meta
+	 *
+	 * @since 1.0.0
+	 */
+	public function register_meta() {
+		register_meta( $this->type, $this->key, [
+			'object_subtype'    => $this->type,
+			'type'              => $this->field_type,
+			'description'       => $this->description,
+			'single'            => $this->single,
+			'default'           => $this->default_value,
+			'sanitize_callback' => [ $this, 'sanitize' ],
+			'auth_callback'     => [ $this, 'has_permission' ],
+			'show_in_rest'      => $this->show_in_rest,
+		] );
 	}
 
 	public function __get( $key ) {
