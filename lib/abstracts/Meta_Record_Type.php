@@ -16,6 +16,8 @@ abstract class Meta_Record_Type {
 
 	protected $field_type = '';
 
+	protected $subtype = '';
+
 	protected $default_value = '';
 
 	protected $type = '';
@@ -129,7 +131,7 @@ abstract class Meta_Record_Type {
 	 */
 	public function register_meta() {
 		register_meta( $this->type, $this->key, [
-			'object_subtype'    => $this->type,
+			'object_subtype'    => $this->subtype,
 			'type'              => $this->field_type,
 			'description'       => $this->description,
 			'single'            => $this->single,
