@@ -21,7 +21,7 @@ class Meta_Record_Type_Instance extends Meta_Record_Type {
 		$this->set_values( $args );
 	}
 
-	public function sanitize() {
+	public function sanitize( $key, $value ) {
 		return $this->set_callable( $this->sanitize_callback );
 	}
 

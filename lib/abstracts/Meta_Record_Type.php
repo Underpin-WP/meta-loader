@@ -29,7 +29,7 @@ abstract class Meta_Record_Type {
 	 *
 	 * @since 1.0.0
 	 */
-	abstract public function sanitize();
+	abstract public function sanitize( $key, $value );
 
 	/**
 	 * Callback that determines if this meta can be saved, or not.
