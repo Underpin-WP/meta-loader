@@ -13,7 +13,7 @@ Underpin::attach( 'setup', new \Underpin\Factories\Observer( 'meta', [
 	require_once( plugin_dir_path( __FILE__ ) . 'lib/factories/Meta_Record_Type_Instance.php' );
 	require_once( plugin_dir_path( __FILE__ ) . 'lib/loaders/Meta.php' );
 		$plugin->loaders()->add( 'meta', [
-		'registry' => 'Underpin_Meta\Loaders\Meta',
+		'class' => 'Underpin_Meta\Loaders\Meta',
 	] );
 	},
 ] ) );
