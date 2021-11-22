@@ -6,9 +6,9 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-use Underpin\Abstracts\Registries\Loader_Registry;
+use Underpin\Abstracts\Registries\Object_Registry;
 
-class Meta extends Loader_Registry {
+class Meta extends Object_Registry {
 
 	protected $abstraction_class = 'Underpin_Meta\Abstracts\Meta_Record_Type';
 
