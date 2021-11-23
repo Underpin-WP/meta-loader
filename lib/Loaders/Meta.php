@@ -1,6 +1,6 @@
 <?php
 
-namespace Underpin_Meta\Loaders;
+namespace Underpin\Meta\Loaders;
 
 if ( ! defined( 'ABSPATH' ) ) {
 	exit;
@@ -10,9 +10,9 @@ use Underpin\Abstracts\Registries\Object_Registry;
 
 class Meta extends Object_Registry {
 
-	protected $abstraction_class = 'Underpin_Meta\Abstracts\Meta_Record_Type';
+	protected $abstraction_class = 'Underpin\Meta\Abstracts\Meta_Record_Type';
 
-	protected $default_factory = 'Underpin_Meta\Factories\Meta_Record_Type_Instance';
+	protected $default_factory = 'Underpin\Meta\Factories\Meta_Record_Type_Instance';
 
 	protected function set_default_items() {
 	}
@@ -20,7 +20,7 @@ class Meta extends Object_Registry {
 	/**
 	 * @param string $key
 	 *
-	 * @return \Underpin_Meta\Abstracts\Meta_Record_Type|\WP_Error Post Meta instance, if it exists. WP_Error, otherwise.
+	 * @return \Underpin\Meta\Abstracts\Meta_Record_Type|\WP_Error Post Meta instance, if it exists. WP_Error, otherwise.
 	 */
 	public function get( $key ) {
 		return parent::get( $key );
@@ -34,7 +34,7 @@ class Meta extends Object_Registry {
 	 * @param bool   $single    Optional. If true, return only the first value of the specified meta_key.
 	 *                          This parameter has no effect if meta_key is not specified. Default false.
 	 *
-	 * @return mixed|\Underpin_Meta\Abstracts\Meta_Record_Type|void|\WP_Error
+	 * @return mixed|\Underpin\Meta\Abstracts\Meta_Record_Type|void|\WP_Error
 	 */
 	public function get_meta( $key, $object_id, $single = false ) {
 		$value = $this->get( $key );

@@ -1,9 +1,9 @@
 <?php
 
-namespace Underpin_Meta\Factories;
+namespace Underpin\Meta\Factories;
 
 use Underpin\Traits\Instance_Setter;
-use Underpin_Meta\Abstracts\Meta_Record_Type;
+use Underpin\Meta\Abstracts\Meta_Record_Type;
 
 if ( ! defined( 'ABSPATH' ) ) {
 	exit;

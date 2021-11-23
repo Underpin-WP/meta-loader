@@ -13,8 +13,9 @@
     "underpin/underpin": "^2.0"
   },
   "autoload": {
+    "psr-4": {"Underpin\\Meta\\":  "lib/"},
     "files": [
-      "meta.php"
+      "bootstrap.php"
     ]
   }
 }

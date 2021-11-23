@@ -1,6 +1,6 @@
 <?php
 
-namespace Underpin_Meta\Abstracts;
+namespace Underpin\Meta\Abstracts;
 
 use Underpin\Traits\Feature_Extension;
 
