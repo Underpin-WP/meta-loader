@@ -42,7 +42,7 @@ abstract class Meta_Record_Type {
 	 *
 	 * @return mixed
 	 */
-	abstract public function has_permission();
+	abstract public function has_permission( $allowed, $meta_key, $object_id, $user_id, $cap, $caps );
 
 	/**
 	 * Adds the metadata.

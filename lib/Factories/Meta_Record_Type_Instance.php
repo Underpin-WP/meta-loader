@@ -30,7 +30,7 @@ class Meta_Record_Type_Instance extends Meta_Record_Type {
 		return parent::sanitize( $meta_value, $meta_key, $object_type );
 	}
 
-	public function has_permission() {
+	public function has_permission( $allowed, $meta_key, $object_id, $user_id, $cap, $caps ) {
 		return $this->set_callable( $this->has_permission_callback );
 	}
 
